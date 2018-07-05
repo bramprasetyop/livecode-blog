@@ -2,15 +2,14 @@
   <div class="ininavbar">
     <div class="row">
       <div id="registering" class="col s6 right">
-        <div id="daftardah" class="col s4 right">
-          <a onclick="document.getElementById('id03').style.display='block'">
-            <h6 id="signupp">Signup</h6>
-          </a>
+        <div id="daftardah" class="col s3 right">
+          <button id="inimantap" onclick="document.getElementById('id03').style.display='block'">
+            SIGNUP
+          </button>
         </div>
       </div>
+      <h2 id="heades">Go-Blog</h2>
     </div>
-
-    <h2 id="heades">Go-Blog</h2>
 
     <div id="id03" class="modal">
       <form class="modal-content animate" action="/action_page.php">
@@ -75,31 +74,38 @@ export default {
   margin-right: 15px;
 }
 
-#signupp{
+#signupp {
   color: whitesmoke;
 }
 .ininavbar {
   /* border: 1px solid black; */
   width: 100%;
   height: 150px;
-  margin-top: -60px;
+  margin-top: -95px;
   background-color: rgb(172, 194, 194);
 }
 
 #heades {
   font-family: sans-serif;
+  margin-left: -450px;
 }
 
 #registering {
   /* border: 1px solid black; */
 }
 
-#daftardah {
+/* #daftardah {
   margin-right: 0px;
-  margin-top: 10px;
+  margin-top: 10px; */
   /* border: 1px solid rgb(5, 37, 36); */
-  border-radius: 10px;
+  /* border-radius: 10px;
   background-color: rgb(39, 189, 164);
+} */
+
+#inimantap{
+  height: 40px;
+  border-radius: 5px;
+  background-color: rgb(11, 170, 170);
 }
 </style>
 
