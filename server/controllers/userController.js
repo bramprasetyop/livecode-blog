@@ -42,10 +42,10 @@ function loginUser(req, res) {
 
       if (compare) {
         jwt.sign(
-          { username: user.username},
+          { username: user.username,id:user._id},
           process.env.SECRET_KEY,
           (err, token) => {
-            console.log(token);
+            // console.log(token);
             
             res.status(200).json({ message: 'Logged In Successfully', token});
           }

@@ -4,7 +4,7 @@
             <div class="content">
                 <h3>{{articles[0].title}}</h3>
                 <p align="justify">
-                    {{articles[0].article}}
+                    {{articles[0].content}}
                 </p>
             </div>
         </div>

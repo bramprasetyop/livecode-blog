@@ -4,8 +4,10 @@
       <div class="content">
 
         <h3>{{article.title}}</h3>
+        <img src="" alt="">{{article.image}}
         <p align="justify">
-          {{article.article}}
+          
+          {{article.content}}
         </p>
       </div>
     </div>

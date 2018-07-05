@@ -44,9 +44,9 @@
               </div>
               <div class="container">
                 <label for="name">
-                  <b>Email</b>
+                  <b>Username</b>
                 </label>
-                <input v-model="body" type="email" placeholder="Email..." name="name">
+                <input v-model="body" type="text" placeholder="Username..." name="name">
 
                 <label for="psw">
                   <b>Password</b>
@@ -156,17 +156,13 @@ export default {
         }
       })
         .then(response => {
+          // console.log(response);
+          this.$router.push('/')
+        })
+        .catch(err => {
           swal({
             text: 'Upload Success',
             icon: 'success'
-          })
-          this.$router.push('/')
-        })
-        // { this.linkImg = response.data.link }
-        .catch(err => {
-          swal({
-            text: 'Something Wrong',
-            icon: 'error'
           })
         })
       // ====================== axios ==========================
@@ -183,7 +179,7 @@ export default {
     },
     login() {
       let obj = {
-        email: this.body,
+        username: this.body,
         password: this.status
       }
       axios

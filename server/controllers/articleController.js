@@ -2,7 +2,11 @@ const Article = require("../model/articleModel");
 var jwt = require("jsonwebtoken");
 
 function newArticle(req, res) {
+
+
   var decoded = jwt.verify(req.headers.token,process.env.SECRET_KEY)
+  console.log(decoded);
+  
   // console.log('======',req.headers.token);
   
 
@@ -11,11 +15,13 @@ function newArticle(req, res) {
     title:req.body.title,
     content: req.body.content,
     category:req.body.category,
-    author : decoded.author
+    author : decoded.id
 
   }
 
   Article.create(addArticle)
+  console.log(addArticle)
+  
     .then(Article => {
       res.status(200).json({
         message: 'new Article added',
