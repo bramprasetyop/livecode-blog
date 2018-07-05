@@ -145,7 +145,7 @@ export default {
       formData.append('content', this.article)
       formData.append('category', this.category)
 
-      // formData.append('text', 'text apa')
+      
       // ====================== axios ==========================
       axios({
         url: 'http://localhost:3000/home',
