@@ -16,6 +16,6 @@ var {
 /* GET articlelisting. */
 router.post('/',logincheck, images.multer.single("image"),
 //  authorization 
-images.sendUploadToGCS, newArticle).get('/articles', getArticle)
-  .delete('/articles/delete/:id',logincheck, deleteArticle).get('/articles/:id', getOneArticle)
+images.sendUploadToGCS, newArticle).get('/blogs', getArticle)
+  .delete('/blogs/delete/:id',logincheck, deleteArticle).get('/blogs/:id', getOneArticle)
 module.exports = router;

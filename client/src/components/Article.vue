@@ -7,11 +7,6 @@
         <p align="justify">
           {{article.article}}
         </p>
-        <div id="like" class="col s6">
-          <button class="waves-effect waves-light btn tiny">
-            <label id="comm">Comment</label>
-          </button>
-        </div>
       </div>
     </div>
   </div>
@@ -43,7 +38,7 @@ export default {
     getOneArticle() {
       axios({
         method: 'get',
-        url: `https://api-blog.bramaprasetyo.co/home/articles/${this.$route.params.id}`
+        url: `http://localhost:3000/home/blogs/${this.$route.params.id}`
       }).then(response => {
         this.article = response.data.Article
         // console.log(response.data.Article.title)

@@ -20,9 +20,9 @@
         <a>Contact</a>
       </h6>
     </div>
-    <div id="nah" class=" col s3">
-      <div id="nahi" class="col s3">
-        <button onclick="document.getElementById('id02').style.display='block'" class="waves-effect waves-light btn-small">Post</button>
+    <div id="nah" class=" col s8">
+      <div id="nahi" class="col s8">
+        <button onclick="document.getElementById('id02').style.display='block'" class="waves-effect waves-light btn-small">Post Article</button>
       </div>
       <div id="nahi" class="col s4">
         <button onclick="document.getElementById('id01').style.display='block'" class="waves-effect waves-light btn-small">Login</button>
@@ -83,8 +83,22 @@
                   <b>Article</b>
                 </label>
                 <textarea v-model="article" name="" id="" cols="60" rows="10"> </textarea>
+                <label for="name">
+                  <b>Category</b>
+                </label>
+                <input v-model="category" type="text" placeholder="Category..." name="name">
 
-                <button onclick="document.getElementById('id02').style.display='none'" @click="post()" type="button">Add Article</button>
+                <div class="file-field input-field">
+                  <div class="btn">
+                    <span>File</span>
+                    <input @change= "fetchImg" type="file" multiple>
+                  </div>
+                  <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text" placeholder="Upload one or more files">
+                  </div>
+                </div>
+
+                <button onclick="document.getElementById('id02').style.display='none'" @click="upload()" type="button">Add Article</button>
               </div>
             </form>
           </div>
@@ -114,10 +128,49 @@ export default {
       body: '',
       title: '',
       article: '',
-      loginStatus:''
+      loginStatus: '',
+      category: '',
+      img: null,
+      linkImg: ''
     }
   },
   methods: {
+    fetchImg(e) {
+      this.img = e.target.files[0]
+    },
+    upload() {
+      let formData = new FormData()
+      formData.append('image', this.img)
+      formData.append('title', this.title)
+      formData.append('content', this.article)
+      formData.append('category', this.category)
+
+      // formData.append('text', 'text apa')
+      // ====================== axios ==========================
+      axios({
+        url: 'http://localhost:3000/home',
+        method: 'post',
+        data: formData,
+        headers: {
+          token: localStorage.getItem('token')
+        }
+      })
+        .then(response => {
+          swal({
+            text: 'Upload Success',
+            icon: 'success'
+          })
+          this.$router.push('/')
+        })
+        // { this.linkImg = response.data.link }
+        .catch(err => {
+          swal({
+            text: 'Something Wrong',
+            icon: 'error'
+          })
+        })
+      // ====================== axios ==========================
+    },
     logout() {
       if (localStorage.hasOwnProperty('token') === true) {
         swal({
@@ -134,7 +187,7 @@ export default {
         password: this.status
       }
       axios
-        .post('https://api-blog.bramaprasetyo.co/login', obj)
+        .post('http://localhost:3000/login', obj)
         .then(response => {
           // console.log(response);
 
@@ -148,34 +201,6 @@ export default {
         .catch(err => {
           swal({
             text: 'Email/ Username Wrong',
-            icon: 'error'
-          })
-        })
-    },
-    post() {
-      let obj = {
-        title: this.title,
-        article: this.article
-      }
-
-      let token = localStorage.getItem('token')
-      axios
-        .post('https://api-blog.bramaprasetyo.co/home', obj, {
-          headers: {
-            token: token
-          }
-        })
-        .then(response => {
-          // console.log(response);
-          swal({
-            text: 'Add Article Success',
-            icon: 'success'
-          })
-          this.$router.push('/')
-        })
-        .catch(err => {
-          swal({
-            text: 'Something Wrong',
             icon: 'error'
           })
         })

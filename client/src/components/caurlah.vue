@@ -6,11 +6,6 @@
                 <p align="justify">
                     {{articles[0].article}}
                 </p>
-                <div id="like" class="col s6">
-                    <button class="waves-effect waves-light btn tiny">
-                        <label id="comm">Comment</label>
-                    </button>
-                </div>
             </div>
         </div>
     </div>
@@ -100,7 +95,6 @@ export default {
   /* border: 5px solid black; */
   border-radius: 5px;
   margin-top: 10px;
-  background-image: url('http://static.wixstatic.com/media/ac65a6e34704466bae682286d73b77ad.jpg_256');
 }
 
 #itu {
