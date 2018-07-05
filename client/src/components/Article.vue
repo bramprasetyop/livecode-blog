@@ -2,11 +2,15 @@
   <div class="details">
     <div id="comment" class="row">
       <div class="content">
-
+        <div class="row">
+          <div id="mantap" class="col s6 right">
+            <div id="mantapp" class="col s5 right"><a ><h6>Delete</h6></a></div>
+            <div id="mantapp" class="col s5 right"><a ><h6>Edit</h6></a></div>
+          </div>
+        </div>
         <h3>{{article.title}}</h3>
-        <img src="" alt="">{{article.image}}
+        <img v-bind:src="article.image" alt="" width="100%">
         <p align="justify">
-          
           {{article.content}}
         </p>
       </div>
@@ -67,6 +71,8 @@ export default {
   border: none;
 }
 
+
+
 .nav-wrapper {
   background-color: rgb(236, 243, 243);
   height: 100px;
@@ -105,6 +111,14 @@ export default {
   /* border: 1px solid black; */
   padding: 5px 5px;
   height: auto;
+}
+
+
+
+#mantapp{
+  border: 1px solid rgb(76, 221, 214);
+  margin-left: 15px;
+  border-radius: 10px;
 }
 
 #oit {
@@ -153,7 +167,7 @@ export default {
 #like {
   /* border: 1px solid black; */
   /* color: rgb(240, 94, 94); */
-    justify-content: right;
+  justify-content: right;
   display: flex;
 }
 

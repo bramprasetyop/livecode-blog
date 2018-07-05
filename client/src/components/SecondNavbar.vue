@@ -91,7 +91,7 @@
                 <div class="file-field input-field">
                   <div class="btn">
                     <span>File</span>
-                    <input @change= "fetchImg" type="file" multiple>
+                    <input @change="fetchImg" type="file" multiple>
                   </div>
                   <div class="file-path-wrapper">
                     <input class="file-path validate" type="text" placeholder="Upload one or more files">
@@ -158,11 +158,15 @@ export default {
         .then(response => {
           // console.log(response);
           this.$router.push('/')
-        })
-        .catch(err => {
           swal({
             text: 'Upload Success',
             icon: 'success'
+          })
+        })
+        .catch(err => {
+          swal({
+            text: 'Something Error',
+            icon: 'error'
           })
         })
       // ====================== axios ==========================

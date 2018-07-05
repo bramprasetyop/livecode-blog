@@ -7,22 +7,17 @@
           <!-- bisa image -->
         </div>
       </div>
-
-      
-
-        <h6 id="nama">
-          <h4>
-            <strong>Articles</strong>
-          </h4>
-        </h6>
-        <div class="row">
-        </div>
-     
-
+      <h6 id="nama">
+        <h4>
+          <strong>Articles</strong>
+        </h4>
+      </h6>
     </div>
-    <div id="leftright">
 
+    <div id="leftright">
+      
       <div v-for="(article,index) in articles" :key="index">
+
         <h6>
           <a @click="changeHome()">
             <router-link :to="`/content/${article._id}`">{{article.title}}</router-link>

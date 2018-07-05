@@ -3,6 +3,7 @@
         <div id="comment" class="row">
             <div class="content">
                 <h3>{{articles[0].title}}</h3>
+                <img v-bind:src="articles[0].image" alt="" width="100%">
                 <p align="justify">
                     {{articles[0].content}}
                 </p>
